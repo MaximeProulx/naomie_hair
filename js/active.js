@@ -56,11 +56,14 @@
     function after() {
         // :: 1.0 Preloader Active Code
         browserWindow.on('load', function () {
-            $('.hidden').hide();
+            setTimeout(function(){
+             $('.hidden').hide();
             $('.see-less').hide();
             $('#preloader').fadeOut('slow', function () {
                 $(this).remove();
             });
+            }, 1000);
+            
         });
 
         // :: 2.0 Nav Active Code
