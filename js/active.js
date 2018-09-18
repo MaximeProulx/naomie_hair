@@ -3,8 +3,14 @@
 
     var browserWindow = $(window);
  
-    var token = '1914860659.1677ed0.43ad2223c95e4c7196ad19873db44ae6', // learn how to obtain it be
-    num_photos = 28; // how much photos do you want to get
+    var token = '1914860659.1677ed0.43ad2223c95e4c7196ad19873db44ae6'; // learn how to obtain it be
+    if(window.screen.width<500){
+        var num_photos = 28; // how much photos do you want to get
+        var num_hide = 8; // how much photos do you want to get
+    }else{
+        var num_photos = 28; // how much photos do you want to get
+        var num_hide = 12; // how much photos do you want to get
+    }
         
     $.ajax({
         url: 'https://api.instagram.com/v1/users/self/media/recent', // or /users/self/media/recent for Sandbox
@@ -14,7 +20,7 @@
         success: function(data){
             console.log(data);
             for( var x =0; x< data.data.length;x++  ){
-                if(x<12){
+                if(x<num_hide){
                 $('.notHidenPics').append('<div class="col-12 col-sm-6 col-lg-3 single-portfolio-area web brand wow fadeInUp" data-wow-delay="100ms">'+
                 '<img src="'+data.data[x].images.standard_resolution.url+'" href="'+data.data[x].images.standard_resolution.url+'"class="img-url" alt="">'+
                 '<div class="portfolio-content"> </div></div>'); 
