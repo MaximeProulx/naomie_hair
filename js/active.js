@@ -33,6 +33,7 @@
             }
            
               //getMedia();
+              after();
         },
         error: function(data){
             console.log(data); // send the error notifications to console
@@ -41,7 +42,7 @@
 
     function getMedia() {
         $.ajax({
-            url: 'https://api.instagram.com/v1/users/self', // or /users/self/media/recent for Sandbox
+            url: 'https://api.instagram.com/v1/users/self', 
             dataType: 'jsonp',
             type: 'GET',
             data: {access_token: token, count: num_photos},
