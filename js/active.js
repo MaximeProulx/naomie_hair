@@ -16,17 +16,17 @@
         url: 'https://graph.instagram.com/me/media', // or /users/self/media/recent for Sandbox
         dataType: 'json',
         type: 'GET',
-        data: {access_token: token, fields: "id, media_type, media_url"},
+        data: {access_token: token, fields: "id, media_type, media_url, caption"},
         success: function(data){
             console.log(data);
             for( var x =0; x< data.data.length; num_photos ){
                 if(x<num_hide){
                 $('.notHidenPics').append('<div class="col-12 col-sm-6 col-lg-3 single-portfolio-area web brand wow fadeInUp" data-wow-delay="100ms">'+
-                '<img src="'+data.data[x].media_url+'" href="'+data.data[x].media_url+'"class="img-url" alt="">'+
+                '<img src="'+data.data[x].media_url+'" href="'+data.data[x].media_url+'"  title="'+data.data[x].caption+'" class="img-url" alt="">'+
                 '<div class="portfolio-content"> </div></div>'); 
                 }else{
                     $('.hidden').append('<div class="col-12 col-sm-6 col-lg-3 single-portfolio-area web brand wow fadeInUp " data-wow-delay="100ms">'+
-                    '<img src="'+data.data[x].media_url+'" href="'+data.data[x].media_url+'"class="img-url" alt="">'+
+                    '<img src="'+data.data[x].media_url+'" href="'+data.data[x].media_url+' title="'+data.data[x].caption+'" "class="img-url" alt="">'+
                     '<div class="portfolio-content"> </div></div>'); 
                 }
               
