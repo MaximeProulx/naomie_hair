@@ -3,7 +3,7 @@
 
     var browserWindow = $(window);
  
-    var token = '1914860659.1677ed0.43ad2223c95e4c7196ad19873db44ae6'; // learn how to obtain it be going back to rpevious authentication
+    var token = '1914860659.1677ed0.43ad2223c95e4c7196ad19873db44ae6'; // learn how to obtain it be going back
     if(window.screen.width<500){
         var num_photos = 16; // how much photos do you want to get
         var num_hide = 8; // how much photos do you want to get
