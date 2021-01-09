@@ -48,7 +48,7 @@
             data: {access_token: token, fields: "media_count" },
             success: function(data){
                 console.log(data);
-                $('.jsNbPics').append(data.data.media_count);
+                $('.jsNbPics').append(data.media_count);
                 //$('.jsFollowers').append(data.data.counts.followed_by);
                 after();
             },
