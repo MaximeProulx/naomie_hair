@@ -33,7 +33,6 @@
             }
            
               getMedia();
-              after();
         },
         error: function(data){
             console.log(data); // send the error notifications to console
