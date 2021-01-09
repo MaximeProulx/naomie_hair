@@ -45,7 +45,7 @@
             url: 'https://graph.instagram.com/me', 
             dataType: 'jsonp',
             type: 'GET',
-            data: {access_token: token, fields: "media_count" },
+            data: {access_token: token, fields: "media_count, username" },
             success: function(data){
                 console.log(data);
                 $('.jsNbPics').append(data.media_count);
