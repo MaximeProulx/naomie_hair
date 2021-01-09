@@ -19,7 +19,7 @@
         data: {access_token: token, fields: "id, media_type, media_url, caption"},
         success: function(data){
             console.log(data);
-            for( var x =0; x< data.data.length; num_photos ){
+            for( var x =0; x< num_photos; x++){
                 if(x<num_hide){
                 $('.notHidenPics').append('<div class="col-12 col-sm-6 col-lg-3 single-portfolio-area web brand wow fadeInUp" data-wow-delay="100ms">'+
                 '<img src="'+data.data[x].media_url+'" href="'+data.data[x].media_url+'"  title="'+data.data[x].caption+'" class="img-url" alt="">'+
