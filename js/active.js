@@ -3,7 +3,7 @@
 
     var browserWindow = $(window);
  
-    var token = '1914860659.1677ed0.43ad2223c95e4c7196ad19873db44ae6'; // learn how to obtain it be going back
+    var token = 'IGQVJWWVU4bVFyN2lhcGRHN1hNYVNXMS1MTG1GXzI5cno2djRja1lLdFVwN05FOEtIOUt1ZAnJGOWpraDh3ZAVVTZAkFXVUlwS3ZAyaTh5WmxxNEs1ZA3drX1gyV21xNEl6MF9hWElhb2d0Wm8wZA2pqS3ZAkZAgZDZD&fbclid=IwAR1SSLYtBpgU8_yEAoFSD6nXV4YLdSPPmGuTEvKKfITE1VDHs-R3YG1_QGA'; // learn how to obtain it be going back
     if(window.screen.width<500){
         var num_photos = 16; // how much photos do you want to get
         var num_hide = 8; // how much photos do you want to get
@@ -13,20 +13,20 @@
     }
         
     $.ajax({
-        url: 'https://api.instagram.com/v1/users/self/media/recent', // or /users/self/media/recent for Sandbox
-        dataType: 'jsonp',
+        url: 'https://graph.instagram.com/me/media', // or /users/self/media/recent for Sandbox
+        dataType: 'json',
         type: 'GET',
-        data: {access_token: token, count: num_photos},
+        data: {access_token: token, fields: "id, media_type, media_url"},
         success: function(data){
             console.log(data);
             for( var x =0; x< data.data.length;x++  ){
                 if(x<num_hide){
                 $('.notHidenPics').append('<div class="col-12 col-sm-6 col-lg-3 single-portfolio-area web brand wow fadeInUp" data-wow-delay="100ms">'+
-                '<img src="'+data.data[x].images.standard_resolution.url+'" href="'+data.data[x].images.standard_resolution.url+'"class="img-url" alt="">'+
+                '<img src="'+data.data[x].media_url+'" href="'+data.data[x].media_url+'"class="img-url" alt="">'+
                 '<div class="portfolio-content"> </div></div>'); 
                 }else{
                     $('.hidden').append('<div class="col-12 col-sm-6 col-lg-3 single-portfolio-area web brand wow fadeInUp " data-wow-delay="100ms">'+
-                    '<img src="'+data.data[x].images.standard_resolution.url+'" href="'+data.data[x].images.standard_resolution.url+'"class="img-url" alt="">'+
+                    '<img src="'+data.data[x].media_url+'" href="'+data.data[x].media_url+'"class="img-url" alt="">'+
                     '<div class="portfolio-content"> </div></div>'); 
                 }
               
