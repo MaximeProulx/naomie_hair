@@ -6,10 +6,10 @@
     var token = 'IGQVJWWVU4bVFyN2lhcGRHN1hNYVNXMS1MTG1GXzI5cno2djRja1lLdFVwN05FOEtIOUt1ZAnJGOWpraDh3ZAVVTZAkFXVUlwS3ZAyaTh5WmxxNEs1ZA3drX1gyV21xNEl6MF9hWElhb2d0Wm8wZA2pqS3ZAkZAgZDZD'; // learn how to obtain it be going back
     if(window.screen.width<500){
         var num_photos = 16; // how much photos do you want to get
-        var num_hide = 8; // how much photos do you want to get
+        var num_hide = 8; // how much photos do you want to hide
     }else{
-        var num_photos = 28; // how much photos do you want to get
-        var num_hide = 12; // how much photos do you want to get
+        var num_photos = 24; // how much photos do you want to get
+        var num_hide = 12; // how much photos do you want to hide
     }
         
     $.ajax({
@@ -19,7 +19,7 @@
         data: {access_token: token, fields: "id, media_type, media_url"},
         success: function(data){
             console.log(data);
-            for( var x =0; x< data.data.length;x++  ){
+            for( var x =0; x< data.data.length; num_photos ){
                 if(x<num_hide){
                 $('.notHidenPics').append('<div class="col-12 col-sm-6 col-lg-3 single-portfolio-area web brand wow fadeInUp" data-wow-delay="100ms">'+
                 '<img src="'+data.data[x].media_url+'" href="'+data.data[x].media_url+'"class="img-url" alt="">'+
