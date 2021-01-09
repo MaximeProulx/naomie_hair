@@ -32,7 +32,7 @@
               
             }
            
-              //getMedia();
+              getMedia();
               after();
         },
         error: function(data){
@@ -42,14 +42,14 @@
 
     function getMedia() {
         $.ajax({
-            url: 'https://api.instagram.com/v1/users/self', 
+            url: 'https://graph.instagram.com/me', 
             dataType: 'jsonp',
             type: 'GET',
-            data: {access_token: token, count: num_photos},
+            data: {access_token: token, fields: "media_count" },
             success: function(data){
                 console.log(data);
-                $('.jsNbPics').append(data.data.counts.media);
-                $('.jsFollowers').append(data.data.counts.followed_by);
+                $('.jsNbPics').append(data.data.media_count);
+                //$('.jsFollowers').append(data.data.counts.followed_by);
                 after();
             },
             error: function(data){
